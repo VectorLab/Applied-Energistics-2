@@ -511,9 +511,9 @@ public final class MeteoritePlacer
 		}
 
 		final int minBlocks = 200;
-		if( validBlocks > minBlocks && realValidBlocks > 80 )
-		{
-			// we can spawn here!
+		if( validBlocks > minBlocks && realValidBlocks > 80 ){}else{
+			return false;
+		}
 
 			int skyMode = 0;
 
@@ -548,6 +548,10 @@ public final class MeteoritePlacer
 			// creator
 			if( skyMode > 10 )
 			{
+				if(AEConfig.instance().isMeteoriteAvoidCrater()) {
+					return false;
+				}
+				// we can spawn here!
 				this.placeCrater( w, x, y, z );
 			}
 
@@ -564,8 +568,6 @@ public final class MeteoritePlacer
 
 			WorldData.instance().spawnData().addNearByMeteorites( w.getWorld().provider.getDimension(), x >> 4, z >> 4, this.settings );
 			return true;
-		}
-		return false;
 	}
 
 	NBTTagCompound getSettings()

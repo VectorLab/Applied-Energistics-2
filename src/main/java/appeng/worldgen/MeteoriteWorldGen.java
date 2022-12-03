@@ -90,8 +90,8 @@ public final class MeteoriteWorldGen implements IWorldGenerator
 				return true;
 			}
 
-			depth -= 15;
-			if( depth < 40 )
+			depth -= 16;
+			if( depth < 32 )
 			{
 				return false;
 			}

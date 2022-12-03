@@ -126,6 +126,7 @@ public final class AEConfig extends Configuration implements IConfigurableObject
 	private double meteoriteClusterChance = 0.1;
 	private int meteoriteMaximumSpawnHeight = 180;
 	private int[] meteoriteDimensionWhitelist = { 0 };
+	private boolean meteoriteAvoidCrater=false;
 
 	// Wireless
 	private double wirelessBaseCost = 8;
@@ -179,8 +180,9 @@ public final class AEConfig extends Configuration implements IConfigurableObject
 		this.minMeteoriteDistance = this.get( "worldGen", "minMeteoriteDistance", this.minMeteoriteDistance ).getInt( this.minMeteoriteDistance );
 		this.meteoriteClusterChance = this.get( "worldGen", "meteoriteClusterChance", this.meteoriteClusterChance ).getDouble( this.meteoriteClusterChance );
 		this.meteoriteMaximumSpawnHeight = this.get( "worldGen", "meteoriteMaximumSpawnHeight", this.meteoriteMaximumSpawnHeight )
-				.getInt(
-						this.meteoriteMaximumSpawnHeight );
+				.getInt(this.meteoriteMaximumSpawnHeight );
+		this.meteoriteAvoidCrater = this.get( "worldGen", "meteoriteAvoidCrater", this.meteoriteAvoidCrater )
+				.getBoolean(this.meteoriteAvoidCrater );
 		this.meteoriteDimensionWhitelist = this.get( "worldGen", "meteoriteDimensionWhitelist", this.meteoriteDimensionWhitelist ).getIntList();
 
 		this.quartzOresPerCluster = this.get( "worldGen", "quartzOresPerCluster", this.quartzOresPerCluster ).getInt( this.quartzOresPerCluster );
@@ -733,6 +735,10 @@ public final class AEConfig extends Configuration implements IConfigurableObject
 	public double getMeteoriteClusterChance()
 	{
 		return this.meteoriteClusterChance;
+	}
+	
+	public boolean isMeteoriteAvoidCrater() {
+		return this.meteoriteAvoidCrater;
 	}
 
 	public int getMeteoriteMaximumSpawnHeight()
