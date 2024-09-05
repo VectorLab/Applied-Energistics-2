@@ -81,15 +81,19 @@ configurations {
 
 dependencies {
     // installable runtime dependencies
-    mods "mcp.mobius.waila:Hwyla:${hwyla_version}"
-    mods "net.industrial-craft:industrialcraft-2:${ic2_version}:dev"
+    //mods "mcp.mobius.waila:Hwyla:${hwyla_version}"
+    //mods "net.industrial-craft:industrialcraft-2:${ic2_version}:dev"
+runtimeOnly(files("libs/industrialcraft-2-2.8.222-ex112-dev.jar"))
     mods "mcjty.theoneprobe:TheOneProbe-${minecraft_version}:${top_version}"
 
     // compile against provided APIs
-    compileOnly "mezz.jei:jei_${minecraft_version}:${jei_version}:api"
-    compileOnly "mcp.mobius.waila:Hwyla:${hwyla_version}"
+    //compileOnly "mezz.jei:jei_${minecraft_version}:${jei_version}:api"
+compileOnly(files("libs/jei_1.12.2-4.16.1.1012-api.jar"))
+    //compileOnly "mcp.mobius.waila:Hwyla:${hwyla_version}"
+compileOnly(files("libs/Hwyla-1.8.26-B42_1.12.2-deobf.jar"))
     compileOnly "net.darkhax.tesla:Tesla-1.12.2:${tesla_version}"
-    compileOnly "net.industrial-craft:industrialcraft-2:${ic2_version}:api"
+    //compileOnly "net.industrial-craft:industrialcraft-2:${ic2_version}:api"
+compileOnly(files("libs/industrialcraft-2-2.8.222-ex112-api.jar"))
     compileOnly "mcjty.theoneprobe:TheOneProbe-1.12:${top_version}:api"
     compileOnly "cofh:CoFHCore:${cofhcore_version}:deobf"
     compileOnly "CraftTweaker2:CraftTweaker2-API:${crafttweaker_version}"
@@ -97,7 +101,8 @@ dependencies {
     compileOnly "team.chisel.ctm:CTM:${ctm_version}"
 
     // at runtime, use the full JEI jar
-    runtime "mezz.jei:jei_${minecraft_version}:${jei_version}"
+    //runtime "mezz.jei:jei_${minecraft_version}:${jei_version}"
+runtimeOnly(files("libs/jei_1.12.2-4.16.1.1012-dev.jar"))
 
     // unit test dependencies
     testCompile "junit:junit:4.12"
